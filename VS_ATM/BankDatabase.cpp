@@ -34,8 +34,6 @@ bool BankDatabase::authenticateUser(int acc_number, int pn)
         return true;
     else
         return false;
-
-    delete acc;
 }
 
 double BankDatabase::getAvailableBalance(int acc_number)
@@ -44,7 +42,6 @@ double BankDatabase::getAvailableBalance(int acc_number)
 
     return (*acc).getAvailableBalance();
 
-    delete acc;
 }
 
 double BankDatabase::getTotalBalance(int acc_number)
@@ -53,7 +50,6 @@ double BankDatabase::getTotalBalance(int acc_number)
 
     return (*acc).getTotalBalance();
 
-    delete acc;
 }
 
 void BankDatabase::credit(int acc_number, double amount)
@@ -62,7 +58,6 @@ void BankDatabase::credit(int acc_number, double amount)
 
     (*acc).credit(amount);
 
-    delete acc;
 }
 
 void BankDatabase::debit(int acc_number, double amount)
@@ -71,5 +66,4 @@ void BankDatabase::debit(int acc_number, double amount)
 
     (*acc).debit(amount);
     
-    delete acc;
 }
