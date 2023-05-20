@@ -8,5 +8,5 @@ public:
 
     Keypad();
 
-    int getInput(int);
+    int getInput();
 };

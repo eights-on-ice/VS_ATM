@@ -4,8 +4,9 @@ Keypad::Keypad()
 {
 }
 
-int Keypad::getInput(int input)
+int Keypad::getInput()
 {
+    int input;
     cin >> input;
     cout << '\n';
     return input;

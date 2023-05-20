@@ -15,22 +15,16 @@ BankDatabase::BankDatabase()
 
 Account* BankDatabase::getAccount(int acc_number)
 {
-    Account* acc = new Account;
-
     for (int i = 0; i < 3; i++)
     {
         if (accounts[i].getAccountNumber() == acc_number)
-            acc = &accounts[i];
+            return &accounts[i];
     }
-
-    return acc;
 }
 
 bool BankDatabase::authenticateUser(int acc_number, int pn)
 {   
-    Account* acc = getAccount(acc_number);
-
-    if ((*acc).validatePIN(pn))
+    if (getAccount(acc_number)->validatePIN(pn))
         return true;
     else
         return false;
@@ -38,32 +32,20 @@ bool BankDatabase::authenticateUser(int acc_number, int pn)
 
 double BankDatabase::getAvailableBalance(int acc_number)
 {
-    Account* acc = getAccount(acc_number);
-
-    return (*acc).getAvailableBalance();
-
+    return getAccount(acc_number)->getAvailableBalance();
 }
 
 double BankDatabase::getTotalBalance(int acc_number)
 {
-    Account* acc = getAccount(acc_number);
-
-    return (*acc).getTotalBalance();
-
+    return getAccount(acc_number)->getTotalBalance();
 }
 
 void BankDatabase::credit(int acc_number, double amount)
 {
-    Account* acc = getAccount(acc_number);
-
-    (*acc).credit(amount);
-
+    getAccount(acc_number)->credit(amount);
 }
 
 void BankDatabase::debit(int acc_number, double amount)
 {
-    Account* acc = getAccount(acc_number);
-
-    (*acc).debit(amount);
-    
+    getAccount(acc_number)->debit(amount);
 }

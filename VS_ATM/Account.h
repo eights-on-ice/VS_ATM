@@ -3,14 +3,12 @@
 class Account
 {
 private:
-
     int accountNumber;
     int pin;
     double availableBalance;
     double totalBalance;
 
 public:
-
     Account();
     Account(int, int, double, double);
 
