@@ -24,11 +24,13 @@ int Account::getAccountNumber()
 void Account::credit(double amount)
 {
     totalBalance = totalBalance + amount;
+    availableBalance = totalBalance;
 }
 
 void Account::debit(double amount)
 {
     totalBalance -= amount;
+    availableBalance = totalBalance;
 }
 
 bool Account::validatePIN(int pn)

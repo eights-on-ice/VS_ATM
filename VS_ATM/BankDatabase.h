@@ -7,6 +7,7 @@ private:
     Account accounts[3];
 
 public:
+    
     BankDatabase();
 
     Account* getAccount(int);

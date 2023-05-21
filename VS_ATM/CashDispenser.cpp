@@ -1,6 +1,4 @@
 #include "CashDispenser.h"
-#include <iostream>
-using namespace std;
 
 CashDispenser::CashDispenser()
 {
@@ -21,8 +19,7 @@ void CashDispenser::dispenseCash(double amount)
 
 	count -= amount / 20.0;
 
-	screen1.displayMessage("$");
 	screen1.displayMessage(amount);
 	screen1.displayMessage(" have been dispensed.");
-
 }
+

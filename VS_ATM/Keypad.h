@@ -9,4 +9,5 @@ public:
     Keypad();
 
     int getInput();
+    double getDouble();
 };

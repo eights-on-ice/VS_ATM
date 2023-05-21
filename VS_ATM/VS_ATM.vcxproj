@@ -128,20 +128,30 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Account.h" />
+    <ClInclude Include="ATM.h" />
+    <ClInclude Include="BalanceInquiry.h" />
     <ClInclude Include="BankDatabase.h" />
-    <ClInclude Include="CashDispenser.cpp" />
     <ClInclude Include="CashDispenser.h" />
+    <ClInclude Include="Deposit.h" />
     <ClInclude Include="DepositSlot.h" />
     <ClInclude Include="Keypad.h" />
     <ClInclude Include="Screen.h" />
+    <ClInclude Include="Transaction.h" />
+    <ClInclude Include="Withdrawal.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Account.cpp" />
+    <ClCompile Include="ATM.cpp" />
+    <ClCompile Include="BalanceInquiry.cpp" />
     <ClCompile Include="BankDatabase.cpp" />
+    <ClCompile Include="CashDispenser.cpp" />
+    <ClCompile Include="Deposit.cpp" />
     <ClCompile Include="DepositSlot.cpp" />
     <ClCompile Include="Keypad.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Screen.cpp" />
+    <ClCompile Include="Transaction.cpp" />
+    <ClCompile Include="Withdrawal.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

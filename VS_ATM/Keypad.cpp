@@ -11,3 +11,11 @@ int Keypad::getInput()
     cout << '\n';
     return input;
 }
+
+double Keypad::getDouble()
+{
+    double input;
+    cin >> input;
+    cout << '\n';
+    return input;
+}

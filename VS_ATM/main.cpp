@@ -1,19 +1,39 @@
-#include "BankDatabase.h"
-#include<iostream>
-using namespace std;
+//#include "Withdrawal.h"
+//#include "Deposit.h"
+//#include "BalanceInquiry.h"
+#include "ATM.h"
 
 int main()
 {
 	BankDatabase bank1;
+	BankDatabase* pBank1 = &bank1;
 
-	cout << bank1.getAvailableBalance(1) << endl;
+	CashDispenser c1;
+	CashDispenser* pC1 = &c1;
 
-	bank1.credit(1, 500);
-	cout << bank1.getTotalBalance(1) << endl;
-	bank1.debit(1, 100);
-	cout << bank1.getTotalBalance(1) << endl;
+	ATM atm(pBank1, pC1);
 
-	cout << bank1.authenticateUser(2, 2);
+	atm.run();
+
+	//cout << pBank1->getAvailableBalance(1);
+
+	//Transaction* pT1 = new Deposit(1, pBank1, pC1);
+	//pT1->execute();
+
+	//delete pT1;
+
+	//pT1 = new BalanceInquiry(1, pBank1);
+	//pT1->execute();
+
+	//delete pT1;
+
+	//pT1 = new Withdrawal(1, pBank1, pC1);
+	//pT1->execute();
+
+	//delete pT1;
+
+	//pT1 = new BalanceInquiry(1, pBank1);
+	//pT1->execute();
 
 	return 0;
 }

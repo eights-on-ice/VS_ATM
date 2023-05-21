@@ -1,12 +1,21 @@
 #include "BankDatabase.h"
-#include <iostream>
-using namespace std;
+
+//BankDatabase::BankDatabase(const Account& acc1, const Account& acc2, const Account& acc3) : accounts()
+//{
+//    Account ahmed(1, 1, 1000, 1000);
+//    Account nasser(2, 2, 500, 500);
+//    Account abslam(3, 3, 250, 250);
+//
+//    accounts[0] = acc1;
+//    accounts[1] = acc2;
+//    accounts[2] = acc3;
+//}
 
 BankDatabase::BankDatabase()
 {
-    Account ahmed(1, 1, 1000, 5000);
-    Account nasser(2, 2, 500, 5000);
-    Account abslam(3, 3, 250, 5000);
+    Account ahmed(1, 1, 1000, 1000);
+    Account nasser(2, 2, 500, 500);
+    Account abslam(3, 3, 250, 250);
 
     accounts[0] = ahmed;
     accounts[1] = nasser;
