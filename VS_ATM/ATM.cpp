@@ -1,6 +1,6 @@
 #include "ATM.h"
 
-ATM::ATM(BankDatabase* currentBDB, CashDispenser* currentCD)
+ATM::ATM(BankDatabase* currentBDB, CashDispenser* currentCD) //constructs ATM
 {
 	BDB = currentBDB;
 	CD = currentCD;
@@ -16,18 +16,18 @@ void ATM::displayMenue()
 	SC.displayMessage("Enter a choice (1-4):");
 }
 
-void ATM::performTransaction(int acc_number)
-{
+void ATM::performTransaction(int acc_number) //infinite loop that keeps performing
+{											 //user's requested transactions
 	while (true)
 	{
 		displayMenue();
-		int choice = KP.getInput();
+		int choice = KP.getInput(); //getting chioce from user
 
-		Transaction* t1 = nullptr;
+		Transaction* t1 = nullptr; //initializing t1 
 
-		if (choice != 4)
+		if (choice != 4) //if user did not choose to exit
 		{
-			if (choice == 1)
+			if (choice == 1) //assigning appropriate objects for each transaction to t1
 			{
 				t1 = new BalanceInquiry(acc_number, BDB);
 			}
@@ -42,22 +42,22 @@ void ATM::performTransaction(int acc_number)
 			else
 			{
 				SC.displayMessage("Error: invalid input");
-				continue;
+				continue; //restart loop and display menue again
 			}
 
-			t1->execute();
-			delete t1;
+			t1->execute(); //depending on choice, executes the specific transaction
+			delete t1; //deleting dynamically allocated memory
 		}
-		else
-			break;
+		else //if user chose to exit,
+			break; //exit loop
 	}
 }
 
 void ATM::run()
 {
-	int accountNumber = 0;
+	int accountNumber = 0; //initializing accountNumber
 
-	while (!userAuthenticated)
+	while (!userAuthenticated) //infinite loop until user is authenticated
 	{
 		SC.displayMessage("Welcome!");
 
@@ -67,35 +67,18 @@ void ATM::run()
 		SC.displayMessage("Enter your PIN: ");
 		int pin = KP.getInput();
 
-		if (!(BDB->authenticateUser(accountNumber, pin)))
+		if (!(BDB->authenticateUser(accountNumber, pin))) //if credentials are incorrect according to BankDatabase
 		{
 			SC.displayMessage("Error: incorrect credentials");
 		}
 		else
 		{
-			userAuthenticated = true;
+			userAuthenticated = true; //authenticate and exit loop
 		}
 	}
 
-	/*SC.displayMessage("Welcome!");
-
-	SC.displayMessage("Please enter your account number: ");
-	int accountNumber = KP.getInput();
-
-	SC.displayMessage("Enter your PIN: ");
-	int pin = KP.getInput();
-
-	if (!(BDB->authenticateUser(accountNumber, pin)))
-	{
-		SC.displayMessage("Error: incorrect credentials");
-	}
-	else
-	{
-		userAuthenticated = true;
-	}*/
-
 	if (userAuthenticated)
 	{
-		performTransaction(accountNumber);
+		performTransaction(accountNumber); //start performing transactions
 	}
 }

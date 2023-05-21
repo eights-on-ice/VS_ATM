@@ -1,39 +1,20 @@
-//#include "Withdrawal.h"
-//#include "Deposit.h"
-//#include "BalanceInquiry.h"
 #include "ATM.h"
 
 int main()
 {
+	//stores accounts informations and 
+	//communicates with/is modified by all associated classes
 	BankDatabase bank1;
 	BankDatabase* pBank1 = &bank1;
 
+	//stores $20 bill count and 
+	//communicates with/is modified by all associated classes
 	CashDispenser c1(500);
 	CashDispenser* pC1 = &c1;
 
-	ATM atm(pBank1, pC1);
+	ATM atm(pBank1, pC1); //creating the atm object
 
-	atm.run();
-
-	//cout << pBank1->getAvailableBalance(1);
-
-	//Transaction* pT1 = new Deposit(1, pBank1, pC1);
-	//pT1->execute();
-
-	//delete pT1;
-
-	//pT1 = new BalanceInquiry(1, pBank1);
-	//pT1->execute();
-
-	//delete pT1;
-
-	//pT1 = new Withdrawal(1, pBank1, pC1);
-	//pT1->execute();
-
-	//delete pT1;
-
-	//pT1 = new BalanceInquiry(1, pBank1);
-	//pT1->execute();
+	atm.run(); //running the system
 
 	return 0;
 }

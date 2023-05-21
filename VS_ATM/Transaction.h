@@ -4,26 +4,26 @@
 #include "Keypad.h"
 #include "Screen.h"
 
+//parent of Deposit, Withdrawal,
+//and BalanceInquiry
 
 class Transaction
 {
+
+//shared data fields for child classes
 protected:
-	int accountNumber;
+	int accountNumber; 
 	double amount;
 
-	BankDatabase* BDB;
-	CashDispenser* CD;
+	BankDatabase* BDB; //will point to Bankdatabase object in main.cpp
+	CashDispenser* CD; //will point to CashDispenser object in main.cpp
 	Keypad KP;
 	Screen SC;
 
 public:
 
-	Transaction(int, BankDatabase* currentBDB);
-	Transaction(int,  BankDatabase* currentBDB, CashDispenser* currentCD);
+	Transaction(int, BankDatabase* currentBDB); //constructor for BalanceInquiry
+	Transaction(int,  BankDatabase* currentBDB, CashDispenser* currentCD); //constructor for Deposit and Withdrawal
 
-	void setBDB(BankDatabase* newBDB);
-	void setCD(CashDispenser* newCD);
-
-
-	virtual void execute();
+	virtual void execute(); //will be redefined in each child class and dynamically binded
 };

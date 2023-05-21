@@ -1,7 +1,7 @@
 #include "Deposit.h"
 
-Deposit::Deposit(int acc_number, BankDatabase* currentBDB, CashDispenser* currentCD)
-	: Transaction(acc_number, currentBDB, currentCD)
+Deposit::Deposit(int acc_number, BankDatabase* currentBDB, CashDispenser* currentCD) //constructing Withdrawal obj and
+	: Transaction(acc_number, currentBDB, currentCD)								 //delegating to base class constructor
 {
 }
 
@@ -16,16 +16,16 @@ void Deposit::execute()
 
 	double input = KP.getDouble();
 
-	if (input)
+	if (input) //if input !=0 (i.e., transaction isnt cancelled)
 	{
-		amount = input / 100.0;
+		amount = input / 100.0; //get amount in dollars
 
 		SC.displayMessage("Please insert a deposit envelope...");
 
-		if (DS.isEnvelopeReceived())
+		if (DS.isEnvelopeReceived()) // always true
 		{
 			SC.displayMessage("Envelope received.");
-			BDB->credit(accountNumber, amount);
+			BDB->credit(accountNumber, amount); //completes transaction through bankdatabase
 		}
 	}
 }
