@@ -8,7 +8,7 @@ int main()
 	BankDatabase bank1;
 	BankDatabase* pBank1 = &bank1;
 
-	CashDispenser c1;
+	CashDispenser c1(500);
 	CashDispenser* pC1 = &c1;
 
 	ATM atm(pBank1, pC1);

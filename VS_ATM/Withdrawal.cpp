@@ -41,7 +41,6 @@ void Withdrawal::execute()
 		break;
 	default:
 		SC.displayMessage("Error: invalid input.");
-		execute();
 	}
 	
 	if (choice != 6)
@@ -50,9 +49,8 @@ void Withdrawal::execute()
 		{
 			if (CD->isSufficientCashAvailable(amount))
 			{
-				BDB->getAccount(accountNumber)->debit(amount);
+				BDB->debit(accountNumber, amount);
 				CD->dispenseCash(amount);
-				SC.displayMessage("Please take cash.");
 				SC.displayMessage("  ");
 			}
 			else

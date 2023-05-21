@@ -24,11 +24,18 @@ BankDatabase::BankDatabase()
 
 Account* BankDatabase::getAccount(int acc_number)
 {
+    int counter = 0;
     for (int i = 0; i < 3; i++)
     {
         if (accounts[i].getAccountNumber() == acc_number)
+        {
             return &accounts[i];
+            counter++;
+        }
     }
+    
+    if (counter == 3)
+        return nullptr;
 }
 
 bool BankDatabase::authenticateUser(int acc_number, int pn)

@@ -55,7 +55,29 @@ void ATM::performTransaction(int acc_number)
 
 void ATM::run()
 {
-	SC.displayMessage("Welcome!");
+	int accountNumber = 0;
+
+	while (!userAuthenticated)
+	{
+		SC.displayMessage("Welcome!");
+
+		SC.displayMessage("Please enter your account number: ");
+		accountNumber = KP.getInput();
+
+		SC.displayMessage("Enter your PIN: ");
+		int pin = KP.getInput();
+
+		if (!(BDB->authenticateUser(accountNumber, pin)))
+		{
+			SC.displayMessage("Error: incorrect credentials");
+		}
+		else
+		{
+			userAuthenticated = true;
+		}
+	}
+
+	/*SC.displayMessage("Welcome!");
 
 	SC.displayMessage("Please enter your account number: ");
 	int accountNumber = KP.getInput();
@@ -63,14 +85,14 @@ void ATM::run()
 	SC.displayMessage("Enter your PIN: ");
 	int pin = KP.getInput();
 
-	if (BDB->authenticateUser(accountNumber, pin))
-	{
-		userAuthenticated = true;
-	}
-	else
+	if (!(BDB->authenticateUser(accountNumber, pin)))
 	{
 		SC.displayMessage("Error: incorrect credentials");
 	}
+	else
+	{
+		userAuthenticated = true;
+	}*/
 
 	if (userAuthenticated)
 	{

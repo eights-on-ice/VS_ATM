@@ -1,8 +1,8 @@
 #include "CashDispenser.h"
 
-CashDispenser::CashDispenser()
+CashDispenser::CashDispenser(int cnt)
 {
-	count = 500;
+	count = cnt;
 }
 
 bool CashDispenser::isSufficientCashAvailable(double amount)

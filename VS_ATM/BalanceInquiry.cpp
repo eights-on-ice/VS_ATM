@@ -6,8 +6,8 @@ BalanceInquiry::BalanceInquiry(int acc_number, BankDatabase* currentBDB)
 
 void BalanceInquiry::execute()
 {
-	double availableBalance = BDB->getAccount(accountNumber)->getAvailableBalance();
-	double totalBalance = BDB->getAccount(accountNumber)->getTotalBalance();
+	double availableBalance = BDB->getAvailableBalance(accountNumber);
+	double totalBalance = BDB->getTotalBalance(accountNumber);
 
 	SC.displayMessage("Your available balance is: ");
 	SC.displayMessage(availableBalance);

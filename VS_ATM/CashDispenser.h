@@ -6,7 +6,7 @@ private:
 	int count;
 
 public:
-	CashDispenser();
+	CashDispenser(int);
 
 	bool isSufficientCashAvailable(double);
 	void dispenseCash(double);

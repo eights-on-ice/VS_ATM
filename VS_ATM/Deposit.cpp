@@ -25,7 +25,7 @@ void Deposit::execute()
 		if (DS.isEnvelopeReceived())
 		{
 			SC.displayMessage("Envelope received.");
-			BDB->getAccount(accountNumber)->credit(amount);
+			BDB->credit(accountNumber, amount);
 		}
 	}
 }
