@@ -64,17 +64,25 @@ void ATM::run()
 		SC.displayMessage("Please enter your account number: ");
 		accountNumber = KP.getInput();
 
-		SC.displayMessage("Enter your PIN: ");
-		int pin = KP.getInput();
+		if ((BDB->getAccount(accountNumber)) != nullptr) //if such accountNumber exists in BankDatabase
+		{
+			SC.displayMessage("Enter your PIN: ");
+			int pin = KP.getInput();
 
-		if (!(BDB->authenticateUser(accountNumber, pin))) //if credentials are incorrect according to BankDatabase
-		{
-			SC.displayMessage("Error: incorrect credentials");
+			if (!(BDB->authenticateUser(accountNumber, pin))) //if credentials are incorrect according to BankDatabase
+			{
+				SC.displayMessage("Error: incorrect credentials");
+			}
+			else
+			{
+				userAuthenticated = true; //authenticate and exit loop
+			}
 		}
-		else
+		else //if there is no account with such number
 		{
-			userAuthenticated = true; //authenticate and exit loop
+			SC.displayMessage("Error: there is no account with such number");
 		}
+		
 	}
 
 	if (userAuthenticated)
